@@ -1,8 +1,20 @@
+@import url("nav.css");
+
+*{
+  box-sizing: border-box;
+}
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
 }
+
+li{
+  list-style-type: none;
+}
+
+
