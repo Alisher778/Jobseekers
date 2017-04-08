@@ -1,16 +1,45 @@
 var express = require('express');
 var router = express.Router();
-var Sequelize = require('sequelize');
+var passwordHash  = require('password-hash');
+var mongoose = require('mongoose');
 
-var models = require('../models');
+mongoose.connect('mongodb://localhost/linkedin_app');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+var userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number,
+  password: String
 });
 
-router.get('/sign-up', function(req, res, next) {
-  res.render('auth/sign-up');
+var User = mongoose.model('User', userSchema);
+
+router.get('/sign-up', function(req, res){
+  res.render('users/sign-up');
 });
+
+// ################## Create New User ##########################
+router.post('/new', function(req, res){
+  User.create({
+    name: req.body.name,
+    age: req.body.age,
+    email: req.body.email,
+    password: passwordHash.generate(req.body.password)
+  }).then(function(user){
+    res.redirect('/users')
+  }).catch(function(err){
+    res.send(err)
+  })
+});
+
+// ################### All Users ################################
+router.get('/', function(req, res){
+  User.find({}).then(function(users){
+    res.render('users/index', {user: users})
+  }).catch(function(err){
+    res.send(err)
+  })
+})
+
 
 module.exports = router;
