@@ -1,0 +1,10 @@
+<%- include ../partials/nav.ejs %>
+
+<h1>Edit the User</h1>
+<form action="/users/<%= user.id%>" method="post">
+  <p><label >Name</label><input type="text" name="name" value="<%= user.name%>" /></p>
+    <p><label >Email</label><input type="text" name="email" value="<%= user.email%>" /></p>
+    <p><label >Age</label><input type="number" name="age" value="<%= user.age%>" /></p>
+    <p><label for="last-name">Password</label><input type="password" name="password"/></p>
+    <button>EDIT</button>
+</form>

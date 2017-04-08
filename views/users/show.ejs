@@ -1,0 +1,11 @@
+<%- include ../partials/nav.ejs %>
+
+
+  <h2><%= user.name%></h2>
+  <p><%= user.email%></p>
+  <p><%= user.age%></p>
+  <p><%= user.updatedAt%></p>
+  <p><%= user.createdAt%></p>
+
+  <button><a href="/users/<%= user.id%>/edit">Edit</a></button>
+  <button><a href="/users/<%= user.id%>/delete">Delete</a></button>

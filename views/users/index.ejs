@@ -4,9 +4,7 @@
 
   <% user.forEach(function(user){%>
   <li>
-  <h2><%= user.name%></h2>
-  <p><%= user.email%></p>
-  <p><%= user.age%></p>
+  <h2><a href="/users/<%= user._id%>"><%= user.name%></a></h2>
  </li>
   <% }) %>
 </ol>
