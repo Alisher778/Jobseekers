@@ -1,0 +1,10 @@
+<%- include ../partials/nav.ejs %>
+
+<h2><%= job.name%></h2>
+  <p><%= job.budget%></p>
+  <p><%= job.description%></p>
+  <p><%= job.updatedAt%></p>
+  <p><%= job.createdAt%></p>
+
+  <button><a href="/jobs/<%= job.id%>/edit">Edit</a></button>
+  <button><a href="/jobs/<%= job.id%>/delete">Delete</a></button>

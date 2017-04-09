@@ -1,20 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var passwordHash  = require('password-hash');
-var mongoose = require('mongoose');
+var User = require("../models/users");
+var Job = require("../models/jobs");
 
-mongoose.connect('mongodb://localhost/linkedin_app');
 
-var userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  age: Number,
-  password: String,
-  createdAt: {type: Date, default: Date.now},
-  updatedAt: {type: Date, default: Date.now}
-});
-
-var User = mongoose.model('User', userSchema);
 
 router.get('/sign-up', function(req, res){
   res.render('users/sign-up');
@@ -80,13 +70,36 @@ router.post('/:id', function(req, res){
 })
 
 
-// ################### Destroy User ############################### 
+// ################### Destroy User ############# 
 router.get('/:id/delete', function(req, res){
   User.remove(req.params.id).then(function(){
     res.redirect('/users')
   })
 })
 
+
+router.get('/:id/jobs/new', function(req,res){
+  res.render('jobs/new', {id: req.params.id});
+});
+
+router.post('/:id/jobs/new', function(req, res){
+  User.findById(req.params.id).then(function(user){
+    Job.create({
+      title: req.body.title,
+      budget: req.body.budget,
+      description: req.body.description,
+      employer: req.body.employer
+    }).then(function(job){
+      user.jobs.push(job);
+      user.save();
+      res.redirect('/users/'+user.id)
+    }).catch(function(err){
+      res.send("Jobs ---"+err)
+    })
+  }).catch(function(err){
+    res.send(err)
+  })
+})
 
 
 

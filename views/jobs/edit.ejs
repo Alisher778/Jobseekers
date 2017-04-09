@@ -1,0 +1,8 @@
+<%- include ../partials/nav.ejs %>
+<form action="/jobs/<%= job.id%>" method="post">
+  <p><label for="">Title</label><input type="text" name="title" value="<%= job.title%>"></p>
+  <p><label for="">Description</label><input type="text" name="description" value="<%= job.description%>"></p>
+  <p><label for="">Budget</label><input type="text" name="budget" value="<%= job.budget%>"></p>
+  <p><label for="">Employer</label><input type="text" name="employer" value="<%= job.employer%>"></p>
+  <button>Post</button>
+</form>

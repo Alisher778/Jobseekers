@@ -8,6 +8,8 @@ var port = process.env.PORT || 3000;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var jobs = require('./routes/jobs');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/linkedin_app');
 
 var app = express();
 
