@@ -3,8 +3,9 @@ var router = express.Router();
 var User = require("../models/users");
 
 
-router.get('/sign-up', function(req, res){
-  res.render('users/sign-up');
+router.use(function(req, res, next){
+  res.locals.msg = "";
+  next();
 });
 
 
@@ -28,22 +29,16 @@ router.get('/:id', function(req, res){
 
 // ################## Edit User info ############################
 
-router.get('/:id/edit', function(req, res){
-  User.findById(req.params.id).then(function(user){
-    res.render('users/edit', {user:user})
-  }).catch(function(err){
-    res.send(err)
-  })
-})
 
-router.post('/:id', function(req, res){
+router.post('/:id/edit', function(req, res){
   User.findById(req.params.id).then(function(user){
     user.update({
-      name: req.body.name,
-      age: req.body.age,
-      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      username: req.body.username,
       updatedAt: new Date()
     }).then(function(){
+      res.locals.msg = "Nice"
       res.redirect('/users/'+user.id)
     })
   }).catch(function(err){

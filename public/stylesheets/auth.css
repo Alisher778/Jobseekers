@@ -1,0 +1,105 @@
+body{
+  
+}
+.login-page{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url('/images/login-page.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.login-form{
+  align-self: center;
+  height: 400px;
+  width: 300px;
+  background-color: rgba(242, 242, 242, 0.75);
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+}
+.login-form h5{
+  color: #14596f;
+  font-size: 1.2em;
+}
+
+.auth{
+  color: #254e5b;
+  margin-top: 50px;
+  display: inline-block;
+  text-decoration: underline;
+}
+.login-form form{
+  margin-top: 120px;
+}
+.login-form form input{
+  width: 80%;
+  border-radius: 15px;
+  height: 35px;
+  font-size: 17px;
+  line-height: 24px;
+  border: 1px solid;
+  padding: 3px 3px 3px 10px;
+}
+input:focus{
+  outline: none;
+}
+
+.auth-btn{
+  width: 80%;
+  height: 35px;
+  padding: 5px;
+  border-radius: 15px;
+  border: 1px solid #1f748e;
+  background-color: #1f748e;
+  color: #e0dfe0;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.sign-up{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url('/images/login-page.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.signup-form{
+  align-self: center;
+  height: 440px;
+  width: 300px;
+  background-color: rgba(242, 242, 242, 0.75);
+  text-align: center;
+  border-radius: 3px;
+  position: absolute;
+  display: none;
+}
+.signup-form input, select{
+  width: 80%;
+  border-radius: 15px;
+  height: 35px;
+  font-size: 17px;
+  line-height: 24px;
+  border: 1px solid;
+  padding: 3px 3px 3px 10px;
+}
+.signup-form h5{
+  color: #14596f;
+  font-size: 1.2em;
+}
+.auth-signup{
+  color: #254e5b;
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: underline;
+}

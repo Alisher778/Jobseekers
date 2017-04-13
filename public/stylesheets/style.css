@@ -1,6 +1,6 @@
 @import url("nav.css");
-@import url("sign-up.css");
-@import url("login.css");
+@import url("auth.css");
+@import url("user-profile.css");
 
 *{
   box-sizing: border-box;

@@ -39,7 +39,7 @@ function isLoggedIn(req, res, next){
 
 
 router.get('/register', function(req, res){
-  res.render('auth/sign-up');
+  res.render('auth/auth');
   console.log(msg);
 });
 
@@ -48,7 +48,7 @@ router.post('/sign-up', function(req, res){
     
     if(user.length != 0){
       res.locals.msg = "This Username is already taken";
-      return res.render('auth/sign-up');
+      return res.render('auth/auth');
       
     }else{
       User.create({
@@ -70,11 +70,6 @@ router.post('/sign-up', function(req, res){
   })
 });
 
-
-router.get('/login', function(req, res){
-  res.render('auth/login');
-});
-
 router.post('/login', function(req, res){
   const username = req.body.username;
   const password = req.body.password;
@@ -94,11 +89,11 @@ router.post('/login', function(req, res){
               res.redirect('/')
             }else{
               res.locals.msg = "Wrong Email/Password. Please check your email/password!";
-              return res.render('auth/login');
+              return res.render('auth/auth');
             }
     }).catch((err)=>{
       res.locals.msg = "No account found under this username. Please creat an account!";
-      return res.render('auth/login');
+      return res.render('auth/auth');
     })
 });
 

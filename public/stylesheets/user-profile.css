@@ -1,0 +1,45 @@
+.user-profile{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+.profile-header{
+  flex: 0 30%;
+  display: flex;
+  flex-direction: column;
+}
+.profile-header img{
+  width: 98%;
+}
+
+.profile-details{
+  flex: 0 60%;
+  margin-left: 2%;
+}
+.profile-details form{
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-details label{
+  width: 20%;
+  display: inline-block;
+  font-size: 15px;
+}
+.profile-details input{
+  width: 65%;
+  height: 30px;
+  font-size: 16px;
+  
+}
+.update-btn{
+  align-self: center;
+  width: 30%;
+  height: 36px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #edebeb;
+  border: 1px solid #2b649d;
+  background-color: rgb(43, 100, 157);
+  display: none;
+}

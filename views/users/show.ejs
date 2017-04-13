@@ -1,13 +1,36 @@
 <%- include ../partials/nav.ejs %>
 
+  <div class="user-profile">
+    <div class="profile-header">
+      <img src="http://i.dailymail.co.uk/i/pix/2016/03/08/22/006F877400000258-3482989-image-a-10_1457476109735.jpg" alt="">
+      <input type="file">
 
-  <h2><%= user.firstName%><%= user.lastName%></h2>
-  <p><%= user.username%></p>
-  <p><%= user.who%></p>
-  <p><%= user.updatedAt%></p>
-  <p><%= user.createdAt%></p>
+      <h3>About</h3>
+      <textarea name="" id="" cols="30" rows="10">
+        Lorem ipsum Exercitation pariatur id et incididunt sint eu cupidatat in amet tempor esse fugiat nisi dolore amet laborum Excepteur cillum aliquip officia velit enim consectetur cupidatat dolor proident officia ea cillum do sit.
+      </textarea>
+    </div>
+    
+    <div class="profile-details">
+      <form action="/users/<%= user.id%>/edit" method="post">
+        <p>
+          <label for="">First Name</label>
+          <input type="text" name="firstName" value="<%= user.firstName%>">
+        </p>
+        <p>
+          <label for="">Last Name</label>
+          <input type="text" name="lastName" value="<%= user.lastName%>">
+        </p>
+        <p>
+          <label for="">Email</label>
+          <input type="email" name="username" value="<%= user.username%>">
+        </p>
+        <button class="update-btn">SAVE</button>
+      </form>
+    </div>
+  </div>
 
   <button><a href="/users/<%= user.id%>/edit">Edit</a></button>
   <button><a href="/users/<%= user.id%>/delete">Delete</a></button>
 
-  <button><a href="/users/<%= user.id%>/jobs/new">Post A Job</a></button>
+  <button><a href="/users/<%= user.id%>/jobs/new">Post A Job</a></button> -->

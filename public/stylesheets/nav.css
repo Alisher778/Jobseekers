@@ -17,7 +17,9 @@ nav{
   margin: 0 40px;
 }
 
-
+/*#logo b{
+  color: red;
+}*/
 #logo{
   color: #d0cccc;
   font-size: 30px;
@@ -63,24 +65,26 @@ nav button{
 
 .alert-message{
   position: absolute;
-  height: 30px;
+  height: 40px;
   z-index: 4;
   text-align: center;
+  margin-top: 15px;
   width: 100%;
   margin-bottom: 100%;
 }
 
 .alert-message h3{
-  background-color: #FC2CBD;
-  width: 70%;
+  background-color: #dcdedf;
+  width: 60%;
   margin: 0 auto;
-  padding: 5px;
+  padding: 12px 1px;
+  border-radius: 3px;
 }
 .alert-message a{
   position: absolute;
-  top: 10%;
-  right: 17%;
-  color: #d0cccc;
+  top: 12%;
+  right: 21%;
+  color: red;
   font-weight: 700;
 }
 #hero-section{

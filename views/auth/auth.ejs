@@ -1,0 +1,36 @@
+<%- include ../partials/nav.ejs %>
+
+<div class="login-page">
+
+  <div class="login-form">
+    <div class="login-text">
+      <h5>LOG IN NOW</h5>
+    </div>
+    <form action="/login" method="post">
+      <p><input type="text" name="username" placeholder="Email"></p>
+      <p><input type="text" name="password" placeholder="Password"></p>
+      <button class="auth-btn">LOG IN</button>
+    </form>
+    <a href="" class="auth">SIGN UP</a>
+  </div>
+
+  <div class="signup-form">
+    <h5>SIGN UP</h5>
+    <form action="/sign-up" method="post">
+      <p><input type="text" name="firstName" placeholder="First Name" /></p>
+      <p><input type="text" name="lastName" placeholder="Last Name" /></p>
+      <p><input type="email" name="username" placeholder="Email" /></p>
+      <p><input type="password" name="password" placeholder="Password" /></p>
+      <p>
+        <select name="who" id="">
+          <option value="worker">Looking for job</option>
+          <option value="employer">Employer</option>
+        </select>
+      </p>
+      <button class="auth-btn">JOIN NOW</button>
+    </form>
+      <a href="" class="auth-signup">LOG IN</a>
+  </div>
+
+</div>
+
