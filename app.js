@@ -7,8 +7,8 @@ var port = process.env.PORT || 3000;
 var index = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/linkedin_app');
-
+// mongoose.connect('mongodb://localhost/linkedin_app');
+mongoose.connect("mongodb://alisher:password@ds161190.mlab.com:61190/job-seeker");
 var app = express();
 
 // view engine setup
