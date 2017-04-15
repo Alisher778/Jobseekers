@@ -1,0 +1,39 @@
+<%- include ../partials/nav.ejs %>
+
+<div class="create-job-page">
+	<div class="create-job">
+		<h1>Create a Job</h1>
+		<form action="/users/<%= userId%>/jobs/new" method="post">
+			<p><label for="">Company Name</label><input type="text" name="company"></p>
+			<p><label for="">Job Title</label><input type="text" name="title"></p>
+			<p><label for="">Location</label><input type="text" name="location"></p>
+			<p><label for="">Job Type</label>
+				<select name="type" id="">
+					<option value="Full-time">Full-time</option>
+					<option value="Part-time">Part-time</option>
+					<option value="Temporary">Temporary</option>
+					<option value="Contract">Contract</option>
+					<option value="Internship">Internship</option>
+					<option value="Commission">Commission</option>
+				</select>
+			</p>
+			<p><label for="">Level</label><input type="text" name="level"></p>
+			<p id="salary"><label for="">Salary</label>
+				<input type="text" name="salary" placeholder="">
+				<select name="extension" id="">
+					<option value="hour">Hour</option>
+					<option value="day">day</option>
+					<option value="day">day</option>
+					<option value="week">week</option>
+					<option value="week">week</option>
+					<option value="month">month</option>
+					<option value="month">month</option>
+					<option value="year">year</option>
+				</select>
+			</p>
+			<p><label for="">Description</label><textarea class="description" type="text" name="description" cols="50" rows="30"></textarea></p>
+			<button class="create-job-btn">CREATE JOB</button>
+		</form>
+	</div>
+	
+</div>

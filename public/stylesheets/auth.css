@@ -84,7 +84,7 @@ input:focus{
   position: absolute;
   display: none;
 }
-.signup-form input, select{
+.signup-form input, .signup-form  select{
   width: 80%;
   border-radius: 15px;
   height: 35px;

@@ -1,0 +1,39 @@
+<%- include ../partials/nav.ejs %>
+
+<div class="create-job-page">
+	<div class="create-job">
+		<h1>Create a Job</h1>
+		<form action="/jobs/<%= job.id%>/edit" method="post">
+			<p><label for="">Company Name</label><input type="text" name="company" value="<%= job.company%>"></p>
+			<p><label for="">Job Title</label><input type="text" name="title" value="<%= job.title%>"></p>
+			<p><label for="">Location</label><input type="text" name="location" value="<%= job.location%>"></p>
+			<p><label for="">Job Type</label>
+				<select name="type" id="type" value="<%= job.jobType%>">
+					<option value="full-time">Full-time</option>
+					<option value="part-time">Part-time</option>
+					<option value="temporary">Temporary</option>
+					<option value="contract">Contract</option>
+					<option value="internship">Internship</option>
+					<option value="commission">Commission</option>
+				</select>
+			</p>
+			<p><label for="">Level</label><input type="text" name="level" value="<%= job.level%>"></p>
+			<p id="salary"><label for="">Salary</label>
+				<input type="text" name="salary" placeholder="" value="<%= job.salary%>">
+				<select name="extension" id="" value="<%= job.extension%>">
+					<option value="hour">Hour</option>
+					<option value="day">day</option>
+					<option value="day">day</option>
+					<option value="week">week</option>
+					<option value="week">week</option>
+					<option value="month">month</option>
+					<option value="month">month</option>
+					<option value="year">year</option>
+				</select>
+			</p>
+			<p><label for="">Description</label><textarea class="description" type="text" name="description" cols="50" rows="30"><%= job.description%></textarea></p>
+			<button class="create-job-btn">UPDATE JOB</button>
+		</form>
+	</div>
+	
+</div>

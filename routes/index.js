@@ -5,6 +5,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local');
 var passportLocalMongoose = require('passport-local-mongoose');
 var User = require('../models/users');
+var Jobs = require('../models/jobs');
 var flash = require('connect-flash');
 var passwordHash  = require('password-hash');
 
@@ -31,7 +32,7 @@ function isLoggedIn(req, res, next){
     return next();
   }
   res.locals.msg = "You must be logged in"
-  res.redirect('/login');
+  res.render('auth/auth');
   console.log(req.session.userId)
 }
 
@@ -114,6 +115,7 @@ router.get('/logout', function(req, res){
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
+
 
 
 

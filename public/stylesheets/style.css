@@ -1,6 +1,7 @@
 @import url("nav.css");
 @import url("auth.css");
 @import url("user-profile.css");
+@import url("create-job.css");
 
 *{
   box-sizing: border-box;

@@ -88,7 +88,7 @@ nav button{
   font-weight: 700;
 }
 #hero-section{
-  height: 700px;
+  height: 95vh;
   background-color: #34495e;
   background: url('/images/hero-img.jpg');
   background-size: cover;

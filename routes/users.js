@@ -56,6 +56,32 @@ router.get('/:id/delete', function(req, res){
 
 
 
+// ##########################################################################
+// ##########################################################################
+// =========================== User Saved Jobs =============================
+// ##########################################################################
+
+router.get('/', function(req, res){
+  User.findOne({_id: req.params.userId}).populate('jobs').exec(function(err, job){
+    if(err){
+      res.redirect('/');
+      console.error(err)
+    }else{
+      res.render('users/jobs/index', {job: job});
+    }
+  })
+});
+
+router.post('/users/:id/savedJob/:jobId', function(req, res){
+  User.findById(req.params.id).then(function(user){
+    Job.findById(req.params.jobId).then(function(job){
+      console.log(user);
+      console.log(job);
+    })
+  })
+  console.log('hrhrtmn')
+})
+
 
 
 

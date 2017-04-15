@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000;
 var index = require('./routes/index');
 var users = require('./routes/users');
+var jobs = require('./routes/jobs');
 var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/linkedin_app');
 mongoose.connect("mongodb://alisher:password@ds161190.mlab.com:61190/job-seeker");
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/', jobs);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
