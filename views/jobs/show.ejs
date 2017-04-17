@@ -3,6 +3,7 @@
 <div class="job-details-page">
 	<div class="job-details">
 		<h2><%= job.title%></h2>
+		<a href="/job/<%= job.id%>/like" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 		<div class="job-important">
 			<p><b>Company:</b> <%= job.company%></p>
 			<p><b>Location:</b> <%= job.location%></p>

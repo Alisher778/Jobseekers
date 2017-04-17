@@ -109,7 +109,7 @@ router.post('/jobs/:id/edit', function(req, res){
 // ===== FInd all job that created current user ============================
 
 
-router.get('/user/:id/job_list', function(req, res){
+router.get('/user/:id/job_list', isLoggedIn, function(req, res){
 	Job.find({author:req.params.id}).then(function(job){
 		res.render('users/jobs/index', {job: job});
 		console.log(job)
@@ -122,7 +122,16 @@ router.get('/user/:id/job_list', function(req, res){
 
 
 
+// ============ Likes route ================================================
 
+router.get('/job/:id/like', isLoggedIn, function(req, res){
+	Job.findByIdAndUpdate(req.params.id, {$inc: {likes: 1}}).then(function(job){
+		res.redirect('/jobs/'+req.params.id)
+	}).catch(function(err){
+		res.send(err);
+		console.err(err)
+	})
+})
 
 
 

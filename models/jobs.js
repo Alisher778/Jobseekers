@@ -8,6 +8,7 @@ var jobSchema = new mongoose.Schema({
 		jobType: String,
 		salary: String,
 		description: String,
+		likes: {type: Number, default: 0},
 		author: String,
 		createdAt: {type: Date, default: Date.now},
 	    updatedAt: {type: Date, default: Date.now}

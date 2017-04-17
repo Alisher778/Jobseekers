@@ -5,6 +5,15 @@ var Job = require("../models/jobs");
 var SavedJob = require("../models/saved_jobs");
 
 
+function isLoggedIn(req, res, next){
+  if(req.session.userId){
+    return next();
+  }
+  res.locals.msg = "You must be logged in"
+  res.render('auth/auth');
+  console.log(req.session.userId)
+}
+
 router.use(function(req, res, next){
   res.locals.msg = "";
   next();
@@ -64,7 +73,7 @@ router.get('/:id/delete', function(req, res){
 // =========================== User Saved Jobs =============================
 // ##########################################################################
 
-router.post('/:id/saved_job/:job_id/new', function(req, res){
+router.post('/:id/saved_job/:job_id/new', isLoggedIn, function(req, res){
   if(req.params.id != 11){
     Job.findById(req.params.job_id).then(function(savedJob){
         SavedJob.create({

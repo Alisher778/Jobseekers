@@ -68,7 +68,14 @@
 	flex-direction: column;
 	justify-content: center;
 }
-
+.like-btn{
+	position: absolute;
+    top: 24px;
+    right: 10%;
+    font-size: 22px;
+    color: #000;
+    cursor: pointer;
+}
 .job-details{
 	width: 65%;
 	align-self: center;
@@ -110,7 +117,7 @@
 .job-details form{
 	position: absolute;
     top: 20px;
-    right: 20%;
+    right: 1%;
 }
 
 .save-for-later{
@@ -184,6 +191,13 @@
 @media only screen and (min-width: 1441px) {
 	.job-details{
 		width: 50%;
+
+	}
+	.like-btn{
+		right: 14%;
+	}
+	.job-details form{
+		right: 1%;
 	}
 }
 
