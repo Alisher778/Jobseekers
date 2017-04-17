@@ -15,6 +15,9 @@
 		 	<a href="/jobs/<%= job.id %>/delete"><button class="delete-job-btn">Delete</button></a>
 		 	<a href="/jobs/<%= job.id %>/edit"><button class="edit-job-btn">UPDATE</button></a>
 		<%}%>
+		<form action="/users/<%= userId || 11%>/saved_job/<%= job.id%>/new" method="post">
+			<button class="save-for-later">SAVE JOB</button>
+		</form>
 	</div>
 </div>
 	

@@ -2,6 +2,7 @@
 @import url("auth.css");
 @import url("user-profile.css");
 @import url("create-job.css");
+@import url("my_saved_jobs.css");
 
 *{
   box-sizing: border-box;

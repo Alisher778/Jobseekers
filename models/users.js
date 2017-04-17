@@ -8,7 +8,6 @@ var userSchema = new mongoose.Schema({
   username: {type: String, unique : true},
   who: {type: String, default: "worker"},
   password: String,
-  jobs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Job' }],
   createdAt: {type: Date, default: Date.now},
   updatedAt: {type: Date, default: Date.now},
 });

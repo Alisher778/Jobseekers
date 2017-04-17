@@ -1,0 +1,23 @@
+a.remove-list-btn{
+	align-self: flex-end;
+    margin-right: 4px;
+    margin-top: 3px;
+    font-size: 20px;
+    color: #e07272;
+}
+
+@media only screen and (min-width: 1441px) {
+	.job-list{
+		width: 55%;
+	}
+
+}
+
+@media only screen and (max-width: 1023px) {
+	.job-list{
+		width: 90%;
+	}
+	.navbar li{
+		margin: 0 25px;
+	}
+}

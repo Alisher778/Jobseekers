@@ -70,8 +70,9 @@
 }
 
 .job-details{
-	width: 75%;
+	width: 65%;
 	align-self: center;
+	position: relative;
 }
 .job-details h2{
 	color: #6eaff1;
@@ -106,6 +107,20 @@
 	font-size: 17px;
 }
 
+.job-details form{
+	position: absolute;
+    top: 20px;
+    right: 20%;
+}
+
+.save-for-later{
+	background-color: rgba(105, 105, 105, 0.74);
+    border: #e74c3c;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
 /*============== Index Page =====================*/
 .job-list-page{
@@ -162,3 +177,42 @@
     padding: 3px 0;
     /*display: none;*/
 }
+
+
+
+/* ======================================= media query =============================================*/
+@media only screen and (min-width: 1441px) {
+	.job-details{
+		width: 50%;
+	}
+}
+
+@media only screen and (max-width: 1023px) {
+	.job-details{
+		width: 90%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+<%- include ../../partials/nav.ejs %>
+
+
+<div class="job-list-page">
+	<div class="job-list">
+		<h1>Your saved job-list</h1>
+		<% job.forEach(function(job){%>
+			<a href="/jobs/<%= job.saved_job._id%>" class="job-info">
+				<h5><%= job.saved_job.title%></h5>
+				<div class="likes">
+					<i class="fa fa-heart-o" aria-hidden="true"></i><span>2</span>
+				</div>
+				<p><%= job.saved_job.company %> - <%= job.saved_job.location %> - <%= job.saved_job.salary%> - <%= job.saved_job.level%> - <%= job.saved_job.jobType%></p>
+				<div class="desc"><%- job.saved_job.description%></div>
+			</a>
+			<a href="/users/saved_job/<%= job.id%>/delete" class="remove-list-btn"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+		<%})%>
+	</div>
+</div>

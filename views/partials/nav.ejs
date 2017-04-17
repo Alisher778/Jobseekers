@@ -12,27 +12,28 @@
   });
   </script>
 <nav>
-  <a href="/"><div id="logo"><b>Job</b>Seekers</div></a>
-  <ul class="navbar">
-    <li><a href="/">HOME</a></li>
-    <% if(userId != undefined){%>
-      <li><a href="users/<%= userId%>/jobs">MY JOBS</a></li>
-  <%} else{%>
-    <li><a href="#">ABOUT</a></li>
-  <%}%>
-    <li><a href="/jobs">JOBS</a></li>
-    <li><a href="#">CONTACT</a></li>
-  </ul>
-  <% if(userId != undefined){%>
-    <a href="/logout" id="login">LOG OUT</a>
-    <a href="/users/<%=userId%>" id="user-profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-    <% if(userType == "employer"){%>
-      <a href="/jobs/new" id="login"><button>POST JOB</button></a>
+  <div class="nav-wrapper">
+    <a href="/"><div id="logo"><b>Job</b>Seekers</div></a>
+    <ul class="navbar">
+      <li><a href="/">HOME</a></li>
+      <% if(userId != undefined){%>
+        <li><a href="/users/<%= userId%>/my_saved_jobs">MY JOBS</a></li>
+    <%} else{%>
+      <li><a href="#">ABOUT</a></li>
     <%}%>
-  <%} else{%>
-    <a href="/register"><button>SIGN UP</button></a>
-  <%}%>
-  
+      <li><a href="/jobs">JOBS</a></li>
+      <li><a href="#">CONTACT</a></li>
+    </ul>
+    <% if(userId != undefined){%>
+      <% if(userType == "employer"){%>
+        <a href="/jobs/new" id="login"><button>POST JOB</button></a>
+      <%}%>
+      <a href="/users/<%=userId%>" id="user-profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+      <a href="/logout" id="login">LOG OUT</a>
+    <%} else{%>
+      <a href="/register"><button>SIGN UP</button></a>
+    <%}%>
+  </div>
 </nav>
 <div class="alert-message">
   <h3><%= msg %></h3>

@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var User = require("../models/users");
+var Job = require("../models/jobs");
+var SavedJob = require("../models/saved_jobs");
 
 
 router.use(function(req, res, next){
@@ -56,31 +58,53 @@ router.get('/:id/delete', function(req, res){
 
 
 
+
 // ##########################################################################
 // ##########################################################################
 // =========================== User Saved Jobs =============================
 // ##########################################################################
 
-router.get('/', function(req, res){
-  User.findOne({_id: req.params.userId}).populate('jobs').exec(function(err, job){
-    if(err){
-      res.redirect('/');
-      console.error(err)
-    }else{
-      res.render('users/jobs/index', {job: job});
-    }
+router.post('/:id/saved_job/:job_id/new', function(req, res){
+  if(req.params.id != 11){
+    Job.findById(req.params.job_id).then(function(savedJob){
+        SavedJob.create({
+          user_id: req.params.id,
+          saved_job: savedJob
+        }).then(function(job){
+          res.redirect('/users/'+req.params.id+'/my_saved_jobs');
+          console.log(job)
+        }).catch(function(err){
+          res.send(err)
+          console.log(err)
+        })
+    })
+  }else{
+    res.redirect('/jobs');
+    // USe Jquery for this route
+  }
+  
+})
+
+// =================== Show all my saved jobs ================================
+router.get('/:id/my_saved_jobs', function(req, res){
+  SavedJob.find({user_id: req.params.id}).then(function(job){
+    res.render('users/jobs/index', {job: job})
+    console.log(job.saved_job)
+  }).catch(function(err){
+    res.send(err)
   })
 });
 
-router.post('/users/:id/savedJob/:jobId', function(req, res){
-  User.findById(req.params.id).then(function(user){
-    Job.findById(req.params.jobId).then(function(job){
-      console.log(user);
-      console.log(job);
-    })
-  })
-  console.log('hrhrtmn')
-})
+// =================== delete my saved job list ==============================
+router.get('/saved_job/:id/delete', function(req, res){
+  SavedJob.findByIdAndRemove(req.params.id).then(function(job){
+    res.redirect('/users/'+job.user_id+'/my_saved_jobs')
+  }).catch(function(err){
+    console.log(err);
+    res.json(err);
+  });
+});
+
 
 
 

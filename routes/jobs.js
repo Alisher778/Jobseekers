@@ -106,4 +106,44 @@ router.post('/jobs/:id/edit', function(req, res){
 	})
 });
 
+// ===== FInd all job that created current user ============================
+
+
+router.get('/user/:id/job_list', function(req, res){
+	Job.find({author:req.params.id}).then(function(job){
+		res.render('users/jobs/index', {job: job});
+		console.log(job)
+	}).catch(function(err){
+		console.error(err);
+		res.locals.msg = "Something went wrong";
+		res.render('jobs/index');
+	})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
