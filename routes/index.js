@@ -8,6 +8,9 @@ var User = require('../models/users');
 var Jobs = require('../models/jobs');
 var flash = require('connect-flash');
 var passwordHash  = require('password-hash');
+const nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
+
 
 
 
@@ -117,6 +120,46 @@ router.get('/', function(req, res, next) {
 });
 
 
+// ============ Contact Page ===========================
+router.get('/contact', function(req, res){
+  res.render('contact');
+})
+
+router.post('/contact', function(req, res){
+
+  var body = req.body;
+
+  var options = {
+      service: 'gmail',
+      auth: {
+        user: "web.alisher89@gmail.com",
+        pass: 'alisher66'
+      }
+    };
+
+  var transporter = nodemailer.createTransport(smtpTransport(options));
+  var mailOptions = {
+    from: body.email,
+    to: 'web.alisher89@gmail.com', 
+    subject: body.subject,
+    replay: body.email,
+    text: body.message,
+    html: `${body.emails} ${body.message}`
+  }
+ // let transporter = nodemailer.createTransport(smtpTransport(options));
+
+
+  transporter.sendMail(mailOptions, function(error){
+      if(error){
+          console.log(error);
+          res.send(error)
+      }else{
+        console.log('Message sent');
+        res.redirect('/');
+      }
+  });
+
+})
 
 
 module.exports = router;

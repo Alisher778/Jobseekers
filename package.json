@@ -12,6 +12,7 @@
     "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
     "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
