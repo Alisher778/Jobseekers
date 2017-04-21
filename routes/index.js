@@ -11,9 +11,58 @@ var passwordHash  = require('password-hash');
 const nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
+// ######################################################################
+// ######################     FACEBOOK LOGIN           ##################
+// ######################################################################
+
+var d = ''
+var Strategy = require('passport-facebook').Strategy;
+
+passport.use(new Strategy({
+    clientID: '1770374113292163',
+    clientSecret: 'cd59c8b0a66966b89df4c9cf2762e9d6',
+    callbackURL: 'http://localhost:3000/login/facebook/return',
+    profileFields: ['id', 'displayName', 'photos', 'email']
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    
+    d = profile.id;
+    console.log(d)
+    return cb(null, profile);
+  }));
+
+
+passport.serializeUser(function(user, cb) {
+  cb(null, user);
+});
+
+passport.deserializeUser(function(obj, cb) {
+  cb(null, obj);
+});
+
+router.use(passport.initialize());
+router.use(passport.session());
+
+
+router.get('/login/facebook',
+  passport.authenticate('facebook', { scope : ['email'] }));
+
+router.get('/login/facebook/return', 
+  passport.authenticate('facebook', { failureRedirect: '/jobs' }),
+  function(req, res) {
+    res.redirect('/contact');
+    console.log(profile)
+    console.log(req.user)
+  });
 
 
 
+
+
+
+
+// ######################################################################
+// ######################################################################
 
 router.use(require('express-session')({
   secret: "Rusty piece of shit",
@@ -24,7 +73,7 @@ router.use(require('express-session')({
 
 router.use(function(req, res, next){
   res.locals.msg = "";
-  res.locals.userId = req.session.userId;
+  res.locals.userId = d || req.session.userId;
   res.locals.userType = req.session.userType;
   next();
 });
@@ -103,6 +152,7 @@ router.post('/login', function(req, res){
 
 router.get('/logout', function(req, res){
   req.session.userId = null;
+  req.logout();
   res.redirect('/');
   res.locals.msg = "Log Out";
 
@@ -116,13 +166,14 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Jobseekers' });
 });
 
 
 // ============ Contact Page ===========================
 router.get('/contact', function(req, res){
   res.render('contact');
+  console.log('contact -------------------',d)
 })
 
 router.post('/contact', function(req, res){
