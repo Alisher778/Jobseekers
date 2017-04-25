@@ -1,0 +1,6 @@
+    <%- include ./partials/nav.ejs %>
+
+<% search.forEach(function(search){%>
+  <h1><a href="/jobs/<%= search.id%>"><%= search.title%></a></h1>
+
+<% })%>
