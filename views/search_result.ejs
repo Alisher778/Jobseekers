@@ -1,9 +1,24 @@
     <%- include ./partials/nav.ejs %>
 
-<% search.forEach(function(searchText){%>
-  <% if(search.length < 0){%>
-    <h1>Sorry nothing found for</h1>
-  <%}else{%>
-  <h1><a href="/jobs/<%= searchText.id%>"><%= searchText.title%></a></h1>
-  <%}%>
-<% })%>
+<% if(search.length == 0){%>
+    <p class="not-found">Sorry Nothing found for key word <b class="term"><%= term %></b></p>
+<%}else{%>
+  <div class="job-list-page">
+  <div class="job-list">
+    <h2 style="text-align: center"><%= search.length%> jobs are found for key word <b class="term"><%= term%></b> </h2>
+
+    <% search.forEach(function(job){%>
+      <a href="/jobs/<%= job.id%>" class="job-info">
+        <h5><%= job.title%></h5>
+        <%if(job.likes > 0){%>
+          <div class="likes">
+            <i class="fa fa-heart-o" aria-hidden="true"></i><span><%= job.likes%></span>
+          </div>
+        <%}%>
+        <p><%= job.company %> - <%= job.location %> - <%= job.salary%> - <%= job.level%> - <%= job.jobType%></p>
+        <div class="desc"><%- job.description%></div>
+      </a>
+    <% })%>
+  </div>
+  </div>
+<%}%>

@@ -121,6 +121,10 @@ nav button{
   text-shadow: 0px 0px 1px #000;
 }
 
+
+/*######################################################################*/
+/*###############  Search       ########################################*/
+/*######################################################################*/
 .search-now{
   height: 40px;
   width: 180px;
@@ -184,5 +188,19 @@ i.fa.fa-times{
   top: 20px;
   font-size: 20px;
   cursor: pointer;
+}
+
+p.not-found{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.term{
+  color: #03a9f4;
+}
+
+.search-result-list{
+  text-align: center;
 }
 
