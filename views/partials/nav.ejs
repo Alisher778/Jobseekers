@@ -33,8 +33,18 @@
     <%} else{%>
       <a href="/register"><button>SIGN UP</button></a>
     <%}%>
+    <i class="fa fa-search" aria-hidden="true" class="search-btn"></i>
   </div>
 </nav>
+
+<div class="search">
+  <i class="fa fa-times" aria-hidden="true" class="close-btn"></i>
+  <form action="/search" method="post">
+    <input type="search" name="search" id="search-input"><input type="submit" value="SEARCH">
+  </form>
+</div>
+
+
 <div class="alert-message">
   <h3><%= msg %></h3>
   <a href="">X</a>

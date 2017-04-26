@@ -218,13 +218,12 @@ router.get('/search', function(req, res){
 });
 
 router.post('/search', function(req, res){
-  console.log(req.body.search)
   Jobs.find({$text: {$search: req.body.search}})
    .exec(function(err, search){
     if(err){
       res.send(err)
     }else{
-      res.render('search_result', {search: search})
+      res.render('search_result', {search: search, term: req.body.search})
     }
    })
 })
