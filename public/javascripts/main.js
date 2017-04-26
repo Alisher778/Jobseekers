@@ -36,6 +36,21 @@ $(document).ready(function(){
   });
  // ===========================================================
 
- 
+//======= Search bar functions =======================
+  $('i.fa.fa-search').click(function(e){
+    e.preventDefault();
+    $('.search').slideDown({
+      start: function(){
+        $(this).css({
+          display: "flex"
+        })
+      }
+    });
+    $('i.fa.fa-times').click(function(){
+      $('.search').slideUp()
+    })
+  })
+ // ===========================================================
+
 
 })
