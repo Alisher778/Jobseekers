@@ -1,6 +1,9 @@
     <%- include ./partials/nav.ejs %>
 
-<% search.forEach(function(search){%>
-  <h1><a href="/jobs/<%= search.id%>"><%= search.title%></a></h1>
-
+<% search.forEach(function(searchText){%>
+  <% if(search.length < 0){%>
+    <h1>Sorry nothing found for</h1>
+  <%}else{%>
+  <h1><a href="/jobs/<%= searchText.id%>"><%= searchText.title%></a></h1>
+  <%}%>
 <% })%>
