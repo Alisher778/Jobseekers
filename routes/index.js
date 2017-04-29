@@ -15,48 +15,54 @@ var smtpTransport = require('nodemailer-smtp-transport');
 // ######################     FACEBOOK LOGIN           ##################
 // ######################################################################
 
-var d = ''
-var Strategy = require('passport-facebook').Strategy;
+// var d = ''
+// var Strategy = require('passport-facebook').Strategy;
 
-passport.use(new Strategy({
-    clientID: '1770374113292163',
-    clientSecret: 'cd59c8b0a66966b89df4c9cf2762e9d6',
-    callbackURL: 'http://localhost:3000/login/facebook/return',
-    profileFields: ['id', 'displayName', 'photos', 'email']
-  },
-  function(accessToken, refreshToken, profile, cb) {
+// passport.use(new Strategy({
+//     clientID: '1770374113292163',
+//     clientSecret: 'cd59c8b0a66966b89df4c9cf2762e9d6',
+//     callbackURL: 'http://localhost:3000/login/facebook/return',
+//     profileFields: ['id', 'displayName', 'photos', 'email']
+//   },
+//   function(accessToken, refreshToken, profile, cb) {
     
-    d = profile.id;
-    console.log(d)
-    return cb(null, profile);
-  }));
+//     d = profile.id;
+//     console.log(d)
+//     return cb(null, profile);
+//   }));
 
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
+// passport.serializeUser(function(user, cb) {
+//   cb(null, user);
+// });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
-});
+// passport.deserializeUser(function(obj, cb) {
+//   cb(null, obj);
+// });
 
-router.use(passport.initialize());
-router.use(passport.session());
-
-
-router.get('/login/facebook',
-  passport.authenticate('facebook', { scope : ['email'] }));
-
-router.get('/login/facebook/return', 
-  passport.authenticate('facebook', { failureRedirect: '/jobs' }),
-  function(req, res) {
-    res.redirect('/contact');
-    console.log(profile)
-    console.log(req.user)
-  });
+// router.use(passport.initialize());
+// router.use(passport.session());
 
 
+// router.get('/login/facebook',
+//   passport.authenticate('facebook', { scope : ['email'] }));
 
+// router.get('/login/facebook/return', 
+//   passport.authenticate('facebook', { failureRedirect: '/jobs' }),
+//   function(req, res) {
+//     res.redirect('/contact');
+//     console.log(profile)
+//     console.log(req.user)
+//   });
+
+
+// router.get('/logout', function(req, res){
+//   req.logout();
+//   res.redirect('/');
+//   res.locals.msg = "Log Out";
+
+//   console.log('Log Out',req.session.userId)
+// })
 
 
 
@@ -73,7 +79,7 @@ router.use(require('express-session')({
 
 router.use(function(req, res, next){
   res.locals.msg = "";
-  res.locals.userId = d || req.session.userId;
+  res.locals.userId = req.session.userId;
   res.locals.userType = req.session.userType;
   next();
 });
@@ -166,7 +172,7 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Jobseekers' });
+  res.render('index', { title: 'Jobseeker' });
 });
 
 
@@ -178,8 +184,6 @@ router.get('/contact', function(req, res){
 
 router.post('/contact', function(req, res){
 
-  var body = req.body;
-
   var options = {
       service: 'gmail',
       auth: {
@@ -190,12 +194,14 @@ router.post('/contact', function(req, res){
 
   var transporter = nodemailer.createTransport(smtpTransport(options));
   var mailOptions = {
-    from: body.email,
+    from: req.body.email,
     to: 'web.alisher89@gmail.com', 
-    subject: body.subject,
-    replay: body.email,
-    text: body.message,
-    html: `${body.emails} ${body.message}`
+    subject: req.body.subject,
+    replay: req.body.email,
+    text: req.body.message,
+    html: `<h5>Email: ${req.body.email}</h5>
+           <h5>Name: ${req.body.name}</h5> 
+           <p>${req.body.message}</p>`
   }
  // let transporter = nodemailer.createTransport(smtpTransport(options));
 
@@ -213,9 +219,7 @@ router.post('/contact', function(req, res){
 })
 
 
-router.get('/search', function(req, res){
-  res.render('search');
-});
+
 
 router.post('/search', function(req, res){
   Jobs.find({$text: {$search: req.body.search}})
