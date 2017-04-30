@@ -3,6 +3,7 @@
 @import url("user-profile.css");
 @import url("create-job.css");
 @import url("my_saved_jobs.css");
+@import url("contact.css");
 
 *{
   box-sizing: border-box;
@@ -28,3 +29,6 @@ li{
   justify-content: center;
 }
 
+#tinymce{
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}

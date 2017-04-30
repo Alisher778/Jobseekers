@@ -26,9 +26,11 @@ nav{
   min-width: 60px;
 }
 
-/*#logo b{
-  color: red;
-}*/
+#logo b{
+  color: #dada07;
+  font-size: 34px;
+  font-weight: 900;
+}
 #logo{
   color: #d0cccc;
   font-size: 30px;
