@@ -1,4 +1,4 @@
-    <%- include ./partials/nav.ejs %>
+<%- include ./partials/nav.ejs %>
 
 <% if(search.length == 0){%>
     <p class="not-found">Sorry Nothing found for key word <b class="term"><%= term %></b></p>
@@ -22,3 +22,6 @@
   </div>
   </div>
 <%}%>
+
+
+<%- include ./partials/footer.ejs %>
