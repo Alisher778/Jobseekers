@@ -1,30 +1,33 @@
 <%- include ./partials/nav.ejs %>
 
+<div class="contact-page">
+	<h1>Contact US</h1>
+		<div class="contact">
+			<div class="contact-left">
+			<p>2060 E 19TH Street, 61, Brooklyn, NY 11229</p>
+			<p>+1 (917)-293-4098</p>
+			<p><a href="mailto:web.alisher89@gmail.com" target="_top">web.alisher89@gmail.com</a></p>
 
-<h1>Contact US</h1>
+			<form action="/contact" method="post">
+				<p><label for="">Your Name:</label><input type="text" name="name"></p>
+				<p><label for="">Subject:</label><input type="text" name="subject"></p>
+				<p><label for="">Your Email:</label><input type="email" name="email"></p>
+				<p><label for=""></label>
+					<textarea id="" cols="30" rows="10" name="message">
+					
+					</textarea>
+				</p>
+				<input type="submit">
+			</form>
+		</div>
 
-
-<form action="/contact" method="post">
-	<p><label for="">Your Name:</label><input type="text" name="name"></p>
-	<p><label for="">Subject:</label><input type="text" name="subject"></p>
-	<p><label for="">Your Email:</label><input type="email" name="email"></p>
-	<p><label for=""></label>
-		<textarea id="" cols="30" rows="10" name="message">
-		
-		</textarea>
-	</p>
-	<input type="submit">
-</form>
-
-<div class="contact-left">
-	<p>2060 E 19TH Street, 61, Brooklyn, NY 11229</p>
-	<p>+1 (917)-293-4098</p>
-	<p><a href="mailto:web.alisher89@gmail.com" target="_top">web.alisher89@gmail.com</a></p>
-	<iframe
-	  width="600"
-	  height="450"
-	  frameborder="0" style="border:0"
-	  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfJNAqfi3jG96sDDGPGxu3J-uRRI97-9k&q=place_id:ChIJgUh1fY5EwokRt16q_HS3es0" allowfullscreen>
-	</iframe>
+		<div class="contact-right">
+			<iframe
+			  width="600"
+			  height="450"
+			  frameborder="0" style="border:0"
+			  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCfJNAqfi3jG96sDDGPGxu3J-uRRI97-9k&q=place_id:ChIJgUh1fY5EwokRt16q_HS3es0" allowfullscreen>
+			</iframe>
+		</div>
+	</div>
 </div>
-

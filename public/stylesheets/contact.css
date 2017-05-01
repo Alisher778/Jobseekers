@@ -1,0 +1,11 @@
+.contact{
+  display: flex;
+  flex-direction: column;
+}
+.contact h1{
+  text-align: center;
+}
+.contact-page{
+  display: flex;
+  justify-content: center;
+}
