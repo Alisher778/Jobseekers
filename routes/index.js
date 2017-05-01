@@ -172,7 +172,7 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Jobseeker' });
+  res.render('index');
 });
 
 
@@ -212,7 +212,8 @@ router.post('/contact', function(req, res){
           res.send(error)
       }else{
         console.log('Message sent');
-        res.redirect('/');
+        res.locals.msg = "Your message was sent successfully.";
+        res.render('index');
       }
   });
 

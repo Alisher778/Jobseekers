@@ -12,6 +12,8 @@ body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -29,3 +31,17 @@ li{
   justify-content: center;
 }
 
+#tinymce{
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+footer{
+	margin-top: auto;
+	text-align: center;
+	border-top: 1px solid #ccc;
+	padding: 20px;
+}
+
+footer a{
+	color: #0097e9;
+}

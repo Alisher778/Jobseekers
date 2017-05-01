@@ -26,9 +26,11 @@ nav{
   min-width: 60px;
 }
 
-/*#logo b{
-  color: red;
-}*/
+#logo b{
+  color: #dada07;
+  font-size: 34px;
+  font-weight: 900;
+}
 #logo{
   color: #d0cccc;
   font-size: 30px;
@@ -77,6 +79,7 @@ nav button{
 
 .alert-message{
   position: absolute;
+  top: 80px;
   height: 40px;
   z-index: 4;
   text-align: center;
@@ -100,7 +103,7 @@ nav button{
   font-weight: 700;
 }
 #hero-section{
-  height: 95vh;
+  height: 90vh;
   background-color: #34495e;
   background: url('/images/hero-img.jpg');
   background-size: cover;
@@ -140,6 +143,7 @@ nav button{
   flex-direction: column;
   justify-content: center;
   position: absolute;
+  top: 70px;
   z-index: 2;
   height: 300px;
   width: 100%;
