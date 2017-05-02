@@ -8,7 +8,9 @@
 <script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
 <script>
   tinymce.init({
-    selector: '.description'
+    selector: '.description',
+    plugins: "paste",
+    content_css: 'style.css',
   });
   </script>
 <nav>
@@ -29,7 +31,7 @@
         <a href="/jobs/new" id="login"><button>POST JOB</button></a>
       <%}%>
       <a href="/users/<%=userId%>" id="user-profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-      <a href="/logout" id="login">LOG OUT</a>
+      <a href="/logout"><p>LOG OUT</p></a>
     <%} else{%>
       <a href="/register"><button>SIGN UP</button></a>
     <%}%>

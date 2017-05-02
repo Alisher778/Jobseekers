@@ -24,6 +24,9 @@ li{
   list-style-type: none;
 }
 
+.description{
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 .sign-up{
   display: flex;
@@ -31,9 +34,6 @@ li{
   justify-content: center;
 }
 
-#tinymce{
-	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
 footer{
 	margin-top: auto;

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   
   //====== Alert message controling like flsh messages=========
   var alert = $('.alert-message h3').text();

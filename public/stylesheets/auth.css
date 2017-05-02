@@ -21,7 +21,6 @@ body{
   background-color: rgba(242, 242, 242, 0.75);
   text-align: center;
   border-radius: 3px;
-  position: absolute;
 }
 .login-form h5{
   color: #14596f;
@@ -81,7 +80,6 @@ input:focus{
   background-color: rgba(242, 242, 242, 0.75);
   text-align: center;
   border-radius: 3px;
-  position: absolute;
   display: none;
 }
 .signup-form input, .signup-form  select{
