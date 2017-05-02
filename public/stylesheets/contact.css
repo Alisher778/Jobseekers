@@ -1,3 +1,16 @@
+
+.contact{
+  display: flex;
+  flex-direction: column;
+}
+.contact h1{
+  text-align: center;
+}
+.contact-page{
+  display: flex;
+  justify-content: center;
+}
+
 .contact-page-wrapper{
 	width: 100%;
 	display: flex;
@@ -86,3 +99,4 @@
 	color: #ccc;
 	font-size: 17px;
 }
+

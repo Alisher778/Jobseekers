@@ -3,7 +3,12 @@
 <div class="job-details-page">
 	<div class="job-details">
 		<h2><%= job.title%></h2>
-		<a href="/job/<%= job.id%>/like" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+		<div class="click-btn">
+			<a href="/job/<%= job.id%>/like" class="like-btn"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+			<form action="/users/<%= userId || 11%>/saved_job/<%= job.id%>/new" method="post">
+				<button class="save-for-later">SAVE JOB</button>
+			</form>
+		</div>
 		<div class="job-important">
 			<p><b>Company:</b> <%= job.company%></p>
 			<p><b>Location:</b> <%= job.location%></p>
@@ -16,9 +21,6 @@
 		 	<a href="/jobs/<%= job.id %>/delete"><button class="delete-job-btn">Delete</button></a>
 		 	<a href="/jobs/<%= job.id %>/edit"><button class="edit-job-btn">UPDATE</button></a>
 		<%}%>
-		<form action="/users/<%= userId || 11%>/saved_job/<%= job.id%>/new" method="post">
-			<button class="save-for-later">SAVE JOB</button>
-		</form>
 	</div>
 </div>
 
