@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .contact{
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
 }
-=======
+
 .contact-page-wrapper{
 	width: 100%;
 	display: flex;
@@ -99,4 +99,3 @@
 	color: #ccc;
 	font-size: 17px;
 }
->>>>>>> ee6426e22ec1a358a81fb5bed995d59111c375a7

@@ -187,8 +187,8 @@ router.post('/contact', function(req, res){
   var options = {
       service: 'gmail',
       auth: {
-        user: "web.alisher89@gmail.com",
-        pass: 'alisher66'
+        user: process.env.GMAIL,
+        pass: process.env.GMAILPASSWORD
       }
     };
 
